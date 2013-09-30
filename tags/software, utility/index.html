@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>software, utility | Drunken Packet</title>
+  <meta name="author" content="The packet">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Drunken Packet"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Drunken Packet" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Drunken Packet</a></h1>
+  <h2><a href="/">Stumbling through the Internets</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">software, utility</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-24T05:17:07.000Z"><a href="/2010/12/23/textmate-and-codesearch/">Dec 23 2010</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/12/23/textmate-and-codesearch/">TextMate and codesearch</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <div class='post_body'><p>The packet is fickle: always I am willing to switch to a new<br>development workflow. Definitely if it&rsquo;s better. Or even if it&rsquo;s just<br>different. Lately, I have been exploring use of<br><a href="http://macromates.com/" target="_blank">TextMate</a>.  I use to use (and maintain my own<br>version of) <a href="http://www.cse.yorku.ca/~oz/wily/" target="_blank">wily</a> but given that a<br>a three button mouse is mandatory to efficient use, it is a challenge<br>to use on planes, trains, etc. Other posts will expand on my editor<br>angst &mdash; Acme vs Wily and the absence of source highlighting for<br>example. But this is sufficient background for the now.</p><br><br><p>Anyway, back to TextMate. It has a lovely bundle scheme that permits<br>defining all kinds of interesting new features. I am please to have<br>completed my first new command. It is tiny and needs other components.<br>A small step. But maybe useful. The packet has been working on WebKit.<br>And <a href="http://codesearch.google.com/codesearch?vert=chromium" target="_blank">Google CodeSearch</a><br>has ever so nicely decided to index WebKit&rsquo;s source code. So, I made a<br>codesearch command:</p><br><br><div class="CodeRay"><br>  <div class="code"><pre>#!/usr/local/bin/rc<br>if ( ~ $TM_SELECTED_TEXT ()) {<br>    # this is one big URL with a single var injected.<br>    open &#39;<a href="http://codesearch.google.com/codesearch?as_q=&#39;\" target="_blank">http://codesearch.google.com/codesearch?as_q=&#39;\</a><br>    ^$TM_CURRENT_WORD^\<br>    &#39;&amp;btnG=Search+Code&amp;hl=en&amp;vert=chromium&amp;\<br>    filesuggest=&amp;as_lang=&amp;as_filename=&amp;as_class=&amp;\<br>    as_function=&amp;as_case=&#39;<br>} else {<br>    # this is one big URL with a single var injected.<br>    open &#39;<a href="http://codesearch.google.com/codesearch?as_q=&#39;\" target="_blank">http://codesearch.google.com/codesearch?as_q=&#39;\</a><br>    ^$TM_SELECTED_TEXT^\<br>    &#39;&amp;btnG=Search+Code&amp;hl=en&amp;vert=chromium&amp;\<br>    filesuggest=&amp;as_lang=&amp;as_filename=&amp;as_class=&amp;\<br>    as_function=&amp;as_case=&#39;<br>}</pre></div><br></div>
+
+
+<p>with input being <em>Selected Text</em> or <em>Scope</em> (Is this right?), bound to<br>^/. And presto! I can ^/ on a type name and look it up. Extra handy<br>this is in WebKit given the paucity of comments. (They make you weak<br>don&rsquo;t you know.)</p>
+
+<p>All this material is however merely prelude to the main event. We have<br>a one-directional link here: from TextMate to CodeSearch. What about<br>the other side?  That will be more interesting. My general approach<br>will be as follows:</p>
+
+<p><ul></p>
+<p><li><p>Create textmate URL scheme links in the output of CodeSearch for<br>everything that I could imagine clicking on that would take me back to<br>TextMate.  This I can do via a Chrome extension.  The details will<br>appear here. Soonish. (And if you follow this blog, you&rsquo;ll know what<br>kind of precision is associated with this time estimate.)</p></li></p>
+<p><li><p>Use the <a href="https://github.com/mbhutton/chrome-duplicate-tab-detector" target="_blank">chrome-duplicate-tab-detector</a><br>extension to stop tab-itis from expanding for each search. (Or is it<br>feature to have lots?) Maybe it&rsquo;s a feature.</p></li><br></ul></div></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:drunkenpacket.com/">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/books/">books</a><small>2</small></li>
+  
+    <li><a href="/tags/food/">food</a><small>1</small></li>
+  
+    <li><a href="/tags/observation/">observation</a><small>1</small></li>
+  
+    <li><a href="/tags/software/">software</a><small>4</small></li>
+  
+    <li><a href="/tags/software macintosh/">software macintosh</a><small>1</small></li>
+  
+    <li><a href="/tags/software, utility/">software, utility</a><small>1</small></li>
+  
+    <li><a href="/tags/whining/">whining</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 The packet
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

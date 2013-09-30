@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2010 | Drunken Packet</title>
+  <meta name="author" content="The packet">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Drunken Packet"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Drunken Packet" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Drunken Packet</a></h1>
+  <h2><a href="/">Stumbling through the Internets</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2010</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-24T05:17:07.000Z"><a href="/2010/12/23/textmate-and-codesearch/">Dec 23 2010</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/12/23/textmate-and-codesearch/">TextMate and codesearch</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <div class='post_body'><p>The packet is fickle: always I am willing to switch to a new<br>development workflow. Definitely if it&rsquo;s better. Or even if it&rsquo;s just<br>different. Lately, I have been exploring use of<br><a href="http://macromates.com/" target="_blank">TextMate</a>.  I use to use (and maintain my own<br>version of) <a href="http://www.cse.yorku.ca/~oz/wily/" target="_blank">wily</a> but given that a<br>a three button mouse is mandatory to efficient use, it is a challenge<br>to use on planes, trains, etc. Other posts will expand on my editor<br>angst &mdash; Acme vs Wily and the absence of source highlighting for<br>example. But this is sufficient background for the now.</p><br><br><p>Anyway, back to TextMate. It has a lovely bundle scheme that permits<br>defining all kinds of interesting new features. I am please to have<br>completed my first new command. It is tiny and needs other components.<br>A small step. But maybe useful. The packet has been working on WebKit.<br>And <a href="http://codesearch.google.com/codesearch?vert=chromium" target="_blank">Google CodeSearch</a><br>has ever so nicely decided to index WebKit&rsquo;s source code. So, I made a<br>codesearch command:</p><br><br><div class="CodeRay"><br>  <div class="code"><pre>#!/usr/local/bin/rc<br>if ( ~ $TM_SELECTED_TEXT ()) {<br>    # this is one big URL with a single var injected.<br>    open &#39;<a href="http://codesearch.google.com/codesearch?as_q=&#39;\" target="_blank">http://codesearch.google.com/codesearch?as_q=&#39;\</a><br>    ^$TM_CURRENT_WORD^\<br>    &#39;&amp;btnG=Search+Code&amp;hl=en&amp;vert=chromium&amp;\<br>    filesuggest=&amp;as_lang=&amp;as_filename=&amp;as_class=&amp;\<br>    as_function=&amp;as_case=&#39;<br>} else {<br>    # this is one big URL with a single var injected.<br>    open &#39;<a href="http://codesearch.google.com/codesearch?as_q=&#39;\" target="_blank">http://codesearch.google.com/codesearch?as_q=&#39;\</a><br>    ^$TM_SELECTED_TEXT^\<br>    &#39;&amp;btnG=Search+Code&amp;hl=en&amp;vert=chromium&amp;\<br>    filesuggest=&amp;as_lang=&amp;as_filename=&amp;as_class=&amp;\<br>    as_function=&amp;as_case=&#39;<br>}</pre></div><br></div>
+
+
+<p>with input being <em>Selected Text</em> or <em>Scope</em> (Is this right?), bound to<br>^/. And presto! I can ^/ on a type name and look it up. Extra handy<br>this is in WebKit given the paucity of comments. (They make you weak<br>don&rsquo;t you know.)</p>
+
+<p>All this material is however merely prelude to the main event. We have<br>a one-directional link here: from TextMate to CodeSearch. What about<br>the other side?  That will be more interesting. My general approach<br>will be as follows:</p>
+
+<p><ul></p>
+<p><li><p>Create textmate URL scheme links in the output of CodeSearch for<br>everything that I could imagine clicking on that would take me back to<br>TextMate.  This I can do via a Chrome extension.  The details will<br>appear here. Soonish. (And if you follow this blog, you&rsquo;ll know what<br>kind of precision is associated with this time estimate.)</p></li></p>
+<p><li><p>Use the <a href="https://github.com/mbhutton/chrome-duplicate-tab-detector" target="_blank">chrome-duplicate-tab-detector</a><br>extension to stop tab-itis from expanding for each search. (Or is it<br>feature to have lots?) Maybe it&rsquo;s a feature.</p></li><br></ul></div></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-23T21:00:00.000Z"><a href="/2010/12/23/photos/">Dec 23 2010</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/12/23/photos/">Food Photos</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>It has become a bit of a recurring meme to take photos of food. Many<br>times, food is indeed plated in a fashion that is at least creative if<br>not actual art.</p>
+<p>This begs the question: what makes for photogenic food? The steam? The<br>color? Does comfort food look better or worse than la nouvelle<br>cuisine? Inquiring minds want to know.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-17T21:03:13.000Z"><a href="/2010/12/17/delicious/">Dec 17 2010</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/12/17/delicious/">Ack: No Delicious</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>It has penetrated the packet&#39;s WebKit-induced mental torpidity that<br>delicious will be going away. Ack. How will I have manage my enormous<br>collection of semi-useful bookmarks. (A large and growing collection<br>of digital cruft which are a meta-level equivalence to many of my<br>books. Links to knowledge are equivalent to having the knowledge<br>right? But never the mind. Back to the topic at hand. How to manage<br>bookmarks now.)</p>
+<p>I have read <a href="http://redmonk.com/sogrady/2010/03/05/del-icio-us-pinboard/" target="_blank">redmonk&#39;s</a> opinion<br>and have no idea how to proceed. I at least have ideas.</p>
+<ul>
+<li>I could build a bookmark archive using posterous itself. YASP!</li>
+<li><a href="&quot;http://www.diigo.com/">diigo</a> Except that it looks heavy.</li>
+<li><a href="http://pinboard.in/switch/" target="_blank">pinboard</a> except that maybe I don&#39;t<br>want to pay.  This looks like the best choice but I don&#39;t think that<br>it syncs with Chrome.</li>
+<li><a href="http://www.bredcrums.com/" target="_blank">bredcrums</a> but they don&#39;t spell<br><em>crumb</em> or <em>bred</em> correctly and and the flash makes me hostile. Which<br>are silly reasons but at least you&#39;re getting an insight into my<br>decision process.</li>
+</ul>
+<p>Grumble. At least we don&#39;t work at yahoo.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-02T15:00:00.000Z"><a href="/2010/12/02/wiki-tooling/">Dec 2 2010</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/12/02/wiki-tooling/">Wiki Tooling</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>As per <a href="/drunkenpacket/2010/12/02/reboot/">our first new-style post</a>, the previous incarnation of drunkenpacket<br>had a custom tool chain for building sites. It was an <em>offline</em><br>system:</p>
+<ul>
+<li>posts were written in <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a></li>
+<li>collaboration was based on storing the changes in <a href="http://git-scm.com/" target="_blank">git</a> and exchanging patches. (You&#39;d be thinking<br>at this juncture that drunkenpacket is comprised of programmers.)</li>
+<li>a miscellany of home-built command line tools in python constructed<br>the html content from the Markdown source</li>
+<li>yet more command line tools uploaded the static content to S3.</li>
+</ul>
+<p>A number of consequences sprang from this:</p>
+<ul>
+<li>we have a lot of content already in Markdown. Conveniently,<br>posterous supports Markdown posts. So, we can re-purpose our content.<br>Including the never before articles unpublished &#39;cause they were<br>waiting on the tooling</li>
+<li>I built a modified non-shared version of the tool-chain for notes<br>about work and stuff. So more Markdown content to draw from. Yay!</li>
+<li>I have all of these scripts that need to be unified and<br>rationalized. Which has become yet another side project. (Henceforth<br>in acronym form as <strong>YASP</strong>  and to be pronounced like <strong>gasp</strong> after a<br>round of burpees.)</li>
+</ul>
+<h1>Present Tooling</h1>
+<ul>
+<li><code>make</code> to control it all.</li>
+<li><code>perl</code> to convert Markdown source into HTML</li>
+<li><code>python</code> for inserting the generated HTML into the template</li>
+<li>Custom <a href="http://golang.org/" target="_blank">Go</a> programs for building an<br>interactive index of all the notes</li>
+</ul>
+<h1>Future Tooling</h1>
+<p>One program in <a href="http://golang.org/" target="_blank">Go</a> that finds all the markdown fragments, converts<br>them into html, templates, indexes and writes the result. Because Go<br>is new hotness. And I like the mascot.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-02T13:00:00.000Z"><a href="/2010/12/02/reboot/">Dec 2 2010</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/12/02/reboot/">Reboot</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>It&#39;s been a while. The packet has been distracted with life. I suppose<br>that will get discussed in future articles. So we are trying something<br><em>new</em>. Largely because the old way was technically neat and all but<br>required us to spend more time developing blogging tools than actually<br>updating the blog. And so there are a lot of unfinished CLs for the<br>blog tools but no actual new blog entries. So, a new way: less<br>friction. Easier adding.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:drunkenpacket.com/">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/books/">books</a><small>2</small></li>
+  
+    <li><a href="/tags/food/">food</a><small>1</small></li>
+  
+    <li><a href="/tags/observation/">observation</a><small>1</small></li>
+  
+    <li><a href="/tags/software/">software</a><small>4</small></li>
+  
+    <li><a href="/tags/software macintosh/">software macintosh</a><small>1</small></li>
+  
+    <li><a href="/tags/software, utility/">software, utility</a><small>1</small></li>
+  
+    <li><a href="/tags/whining/">whining</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 The packet
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

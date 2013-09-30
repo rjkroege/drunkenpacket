@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Wiki Tooling | Drunken Packet</title>
+  <meta name="author" content="The packet">
+  
+  <meta name="description" content="As per our first new-style post, the previous incarnation of drunkenpackethad a custom tool chain for building sites. It was an offlinesystem:
+
+posts ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Wiki Tooling"/>
+  <meta property="og:site_name" content="Drunken Packet"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Drunken Packet" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Drunken Packet</a></h1>
+  <h2><a href="/">Stumbling through the Internets</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-12-02T15:00:00.000Z"><a href="/2010/12/02/wiki-tooling/">Dec 2 2010</a></time>
+      
+      
+  
+    <h1 class="title">Wiki Tooling</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>As per <a href="/drunkenpacket/2010/12/02/reboot/">our first new-style post</a>, the previous incarnation of drunkenpacket<br>had a custom tool chain for building sites. It was an <em>offline</em><br>system:</p>
+<ul>
+<li>posts were written in <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a></li>
+<li>collaboration was based on storing the changes in <a href="http://git-scm.com/" target="_blank">git</a> and exchanging patches. (You&#39;d be thinking<br>at this juncture that drunkenpacket is comprised of programmers.)</li>
+<li>a miscellany of home-built command line tools in python constructed<br>the html content from the Markdown source</li>
+<li>yet more command line tools uploaded the static content to S3.</li>
+</ul>
+<p>A number of consequences sprang from this:</p>
+<ul>
+<li>we have a lot of content already in Markdown. Conveniently,<br>posterous supports Markdown posts. So, we can re-purpose our content.<br>Including the never before articles unpublished &#39;cause they were<br>waiting on the tooling</li>
+<li>I built a modified non-shared version of the tool-chain for notes<br>about work and stuff. So more Markdown content to draw from. Yay!</li>
+<li>I have all of these scripts that need to be unified and<br>rationalized. Which has become yet another side project. (Henceforth<br>in acronym form as <strong>YASP</strong>  and to be pronounced like <strong>gasp</strong> after a<br>round of burpees.)</li>
+</ul>
+<h1>Present Tooling</h1>
+<ul>
+<li><code>make</code> to control it all.</li>
+<li><code>perl</code> to convert Markdown source into HTML</li>
+<li><code>python</code> for inserting the generated HTML into the template</li>
+<li>Custom <a href="http://golang.org/" target="_blank">Go</a> programs for building an<br>interactive index of all the notes</li>
+</ul>
+<h1>Future Tooling</h1>
+<p>One program in <a href="http://golang.org/" target="_blank">Go</a> that finds all the markdown fragments, converts<br>them into html, templates, indexes and writes the result. Because Go<br>is new hotness. And I like the mascot.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/software/">software</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:drunkenpacket.com/">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/books/">books</a><small>2</small></li>
+  
+    <li><a href="/tags/food/">food</a><small>1</small></li>
+  
+    <li><a href="/tags/observation/">observation</a><small>1</small></li>
+  
+    <li><a href="/tags/software/">software</a><small>4</small></li>
+  
+    <li><a href="/tags/software macintosh/">software macintosh</a><small>1</small></li>
+  
+    <li><a href="/tags/software, utility/">software, utility</a><small>1</small></li>
+  
+    <li><a href="/tags/whining/">whining</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 The packet
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

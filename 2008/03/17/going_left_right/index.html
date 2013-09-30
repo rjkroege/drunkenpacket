@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Going Left or Going Right | Drunken Packet</title>
+  <meta name="author" content="The packet">
+  
+  <meta name="description" content="Background
+Some time ago at work, I had the occasion to move offices. Therewere a number of reasons for this.  However, the reason is notparticularly ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Going Left or Going Right"/>
+  <meta property="og:site_name" content="Drunken Packet"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Drunken Packet" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Drunken Packet</a></h1>
+  <h2><a href="/">Stumbling through the Internets</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2008-03-17T20:00:00.000Z"><a href="/2008/03/17/going_left_right/">Mar 17 2008</a></time>
+      
+      
+  
+    <h1 class="title">Going Left or Going Right</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1>Background</h1>
+<p>Some time ago at work, I had the occasion to move offices. There<br>were a number of reasons for this.  However, the reason is not<br>particularly germane. Here, we are concerned with a much more<br>important issue: the new route to the breakroom.</p>
+<p>There are now two paths to the breakroom.  The choice is agonizing.<br>Do I want to go left or right? The routes seem almost the same<br>length.  There are no coworkers whose presence necessitate one<br>particular route.   (As an aside, this is not unprecedented.  At a<br>previous employer, the presence of a single software development<br>intern with the combination of a flirtatious demeanor and a marked<br>resemblance to a young <a href="http://www.imdb.com/name/nm0000475/" target="_blank">Patsy Kensit</a> forced the imposition of a<br>star topology on the office halls with the hub immediately outside<br>her office.  But I digress.)</p>
+<p>Obviously I need to add some empiricism to my life and determine<br>the shortest route as laziness reigns supreme.  (Some would euphemize<br>laziness as <em>optimization</em> or <em>efficiency</em>.)  (Perhaps I could even<br>persuade my manager of this?)</p>
+<p>My solution: count steps going left and going right, compute a<br>two-tail null test (Student&#39;s T-test) on them to see if they represent<br>different means and report the result.</p>
+<h1>Data</h1>
+<table><br>    <tr><br>        <td><b>Right</b></td><br>        <td><b>Left</b></td><br>    </tr><br>    <tr><br>        <td>67</td><br>        <td>80</td><br>    </tr><br>    <tr><br>        <td>66</td><br>        <td>76</td><br>    </tr><br>    <tr><br>        <td>65</td><br>        <td>77</td><br>    </tr><br>    <tr><br>        <td>64</td><br>        <td>79</td><br>    </tr><br></table>
+
+<h1>Long Tangent</h1>
+<p>So, this was not so simple.  Not for me was to get out my trusty<br>HP calculator and do the necessary math.  I couldn&#39;t even choose<br>to write some simple code. Instead, I decided that would install a<br>nice statistics package and do simple statistics with <em>style</em>.</p>
+<p>So, I embarked on a long painful journey:</p>
+<ol>
+<li>I set up <a href="http://constantly.at/lisp/asdf/index.html#Top" target="_blank">ASDF</a> and <a href="http://www.cliki.net/ASDF-Install" target="_blank">ASDF-install</a>.<br>(Yes, I must do statistics in LISP.  The packet lithps when<br>drunk.)  Take-away: the <a href="http://cclan.cvs.sourceforge.net/*checkout*/cclan/asdf-install/doc/index.html" target="_blank">ASDF-install tutorial</a> was very<br>helpful but didn&#39;t really address the whole <a href="http://www.gnupg.org/" target="_blank">gpg</a> integration<br>issue. And restarts in <a href="http://openmcl.clozure.com/" target="_blank">OpenMCL</a> are confusing for the<br>neophyte.</li>
+</ol>
+<ol>
+<li>I installed <a href="http://common-lisp.net/project/cl-mathstats/" target="_blank">cl-mathstats</a>.  This is a package that appears<br>under the hood to be a bit of Frankenstein: lots of pieces<br>from different places.  And the docs don&#39;t actually help<br>me very much but then perhaps I am simply silly. (In a<br>perfect world, I would offer some patches against <a href="http://common-lisp.net/project/tinaa/" target="_blank">TINAA</a><br>that have a different CSS aesthetic.)</li>
+</ol>
+<p>At last, I was ready to do some statistics in style:</p>
+<pre><code><span class="list">(<span class="body"> import 'cl-mathstats<span class="keyword">:mean</span> )</span></span>
+<span class="list">(<span class="body"> import 'cl-mathstats<span class="keyword">:variance</span> )</span></span>
+<span class="list">(<span class="body"> import 'cl-mathstats<span class="keyword">:data-length</span> )</span></span>
+<span class="list">(<span class="body"> import 'cl-mathstats<span class="keyword">:students-t-significance</span> )</span></span>
+<span class="list">(<span class="body"> defun left-or-right <span class="list">(<span class="body"> right-v left-v )</span></span> 
+    <span class="string">"uses statistical tools from cl-mathstats to do
+    with style what I should have done with a pencil:
+    perform a two-tail null hypothesis test comparing
+    right-v and left-v.
+
+    returns the probability that the normally distributed
+    populations from which samples right-v, left-v are
+    drawn have different means."</span>
+    <span class="list">(<span class="body"> let
+        <span class="list">(<span class="body"><span class="list">(<span class="body"> sv  <span class="list">(<span class="body"> /  
+            <span class="list">(<span class="body"> abs <span class="list">(<span class="body"> -  <span class="list">(<span class="title">mean</span><span class="body"> right-v )</span></span> <span class="list">(<span class="body"> mean left-v )</span></span>)</span></span>)</span></span>
+            <span class="list">(<span class="body"> sqrt  <span class="list">(<span class="body"> + 
+                <span class="list">(<span class="body"> / <span class="list">(<span class="body"> variance right-v  )</span></span> <span class="list">(<span class="body"> length right-v )</span></span>)</span></span>
+                <span class="list">(<span class="body"> / <span class="list">(<span class="body"> variance left-v )</span></span> <span class="list">(<span class="body"> length left-v )</span></span>)</span></span>)</span></span>)</span></span>)</span></span>)</span></span>
+        <span class="list">(<span class="body"> dof 
+            <span class="list">(<span class="body"> + <span class="list">(<span class="body"> length right-v )</span></span>  <span class="list">(<span class="body"> length left-v )</span></span> <span class="number">-2</span> )</span></span>)</span></span>)</span></span>
+            <span class="list">(<span class="body"> students-<span class="literal">t</span>-significance sv dof <span class="keyword">:both</span> )</span></span>)</span></span>)</span></span>
+
+<span class="list">(<span class="body"> left-or-right  <span class="quoted">'(   <span class="number">67</span> <span class="number">66</span> <span class="number">65</span> <span class="number">64</span>  )</span> <span class="quoted">'(   <span class="number">80</span> <span class="number">76</span> <span class="number">77</span> <span class="number">79</span> )</span> )</span></span></code></pre>
+<h1>Result</h1>
+<p>Ah ha!  To a 0.9999 significance level, going right and left differ!<br>Wow. So much effort to save 12 whole steps by going right, albeit<br>at least three times a day. I am <em>so</em> efficient. I have optimized<br>my life further. Soon, I will only travel under rainbows and wear<br>a woven bamboo hat.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:drunkenpacket.com/">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/books/">books</a><small>2</small></li>
+  
+    <li><a href="/tags/food/">food</a><small>1</small></li>
+  
+    <li><a href="/tags/observation/">observation</a><small>1</small></li>
+  
+    <li><a href="/tags/software/">software</a><small>4</small></li>
+  
+    <li><a href="/tags/software macintosh/">software macintosh</a><small>1</small></li>
+  
+    <li><a href="/tags/software, utility/">software, utility</a><small>1</small></li>
+  
+    <li><a href="/tags/whining/">whining</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 The packet
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
